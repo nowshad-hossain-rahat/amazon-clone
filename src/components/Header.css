@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+header {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #222;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    left: 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+    width: 100px;
+    margin: 0;
+    padding: 0;
+}
+
+.header-search {
+    align-self: flex-start;
+    justify-self: stretch;
+    margin: 0 auto;
+    padding: 0;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-search input, 
+.header-search button {
+    border: none;
+    background: #fff;
+    padding: 8px 12px;
+    margin: 0;
+    font-size: 15px;
+    outline: none;
+    width: 80%;
+}
+
+.header-search button {
+    background: #f89b34;
+    width: 10%;
+    min-width: 40px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.header-search button:hover {
+    background-color: #d8821f;
+}
+
+.header-nav {
+    list-style: none;
+    color: #fff;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.header-nav .header-option {
+    font-size: 15px;
+    padding: 0 8px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.header-nav .header-option:hover a {
+    transition: 0.3s;
+    color: #f89b34;
+}
+
+.header-nav .header-option span {
+    font-size: 11px;
+    display: block;
+    color: #aaa;
+    padding: 0 0 3px 0;
+    margin: 0;
+    font-weight: normal;
+}
+
+.header-option.basket-icon {
+    font-size: 20px;
+    margin: 0;
+    padding: 0 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+}
+
+.header-option.basket-icon i {
+    padding: 0;
+    margin: 0;
+}
+
+.header-option.basket-icon:hover {
+    color: #f89b34;
+}
+
+.header-option.basket-icon .shoping-basket-item-counter {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: firebrick;
+    width: auto;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    opacity: 0;
+    visibility: hidden;
+}
