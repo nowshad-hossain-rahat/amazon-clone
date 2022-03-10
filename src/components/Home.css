@@ -1,0 +1,42 @@
+.home,
+.home-container {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.home-container .banner {
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin-bottom: -20%;
+    z-index: -1;
+}
+
+.home-container .banner:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, white);
+}
+
+.home-container .banner img {
+    width: 100%;
+}
+
+.home-row {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 0 15px;
+    margin: 0;
+    overflow-x: scroll;
+}

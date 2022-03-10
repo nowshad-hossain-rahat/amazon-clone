@@ -23,7 +23,8 @@ header {
     position: sticky;
     top: 0;
     left: 0;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
 }
 
 .logo {
@@ -54,12 +55,17 @@ header {
     width: 80%;
 }
 
+.header-search input {
+    border-radius: 5px 0 0 5px;
+}
+
 .header-search button {
     background: #f89b34;
     width: 10%;
     min-width: 40px;
     cursor: pointer;
     transition: 0.3s;
+    border-radius: 0 5px 5px 0;
 }
 
 .header-search button:hover {
@@ -78,7 +84,7 @@ header {
 
 .header-nav .header-option {
     font-size: 15px;
-    padding: 0 8px;
+    padding: 0 10px;
     margin: 0;
     font-weight: bold;
 }
