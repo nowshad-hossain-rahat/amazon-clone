@@ -1,0 +1,79 @@
+.basket-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #eee;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.basket-item-info {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.basket-item-title {
+    line-height: 20px;
+    font-size: 16px;
+}
+
+.basket-item-title:hover {
+    color: #f89b34;
+}
+
+.basket-item .basket-item-price {
+    font-size: 20px;
+    margin: 5px 0;
+}
+
+.basket-item .basket-item-price small {
+    font-size: 15px;
+}
+
+.basket-item .basket-item-price strong sup {
+    font-weight: normal;
+    font-size: 17px;
+}
+
+.basket-item .basket-item-rating {
+    margin-bottom: 5px;
+}
+
+.basket-item .basket-item-rating span {
+    color: #d8821f;
+    margin-right: 5px;
+}
+
+.basket-item .basket-item-rating span.negative {
+    color: #aaa;
+}
+
+.basket-item .basket-item-image {
+    max-width: 45%;
+    height: 150px;
+    margin: auto;
+}
+
+.basket-item .remove-from-basket-btn {
+    padding: 5px 8px;
+    outline: none;
+    border: none;
+    background-color: #f89b34;
+    color: #000;
+    font-size: 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+    cursor: pointer;
+    margin-top: auto;
+}
+
+.basket-item .remove-from-basket-btn:hover {
+    background-color: #d8821f;
+}

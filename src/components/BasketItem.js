@@ -1,17 +1,17 @@
 import React from 'react';
 import { useStateValue } from '../StateProvider';
-import './Product.css';
+import './BasketItem.css';
 
-function Product({id, title, price, rating, image}) {
+export default function BasketItem({id, title, price, rating, image}) {
 
     const [state, dispatch] = useStateValue();
 
-    const addToBasket = () => {
+    const removeFromBasket = () => {
 
         // dispatch the item into the data layer
 
         dispatch({
-            type: 'ADD_TO_BASKET',
+            type: 'REMOVE_FROM_BASKET',
             item: {id, title, price, rating, image}
         });
 
@@ -33,15 +33,17 @@ function Product({id, title, price, rating, image}) {
     }
 
     return (
-        <div className="product" key={id}>
+        <div className="basket-item" key={id}>
             
-            <div className="product-info">
+            <img src={image} alt="Basket Item Image" className="basket-item-image" />
 
-                <a className='product-title' href="#">
+            <div className="basket-item-info">
+
+                <a className='basket-item-title' href="#">
                     {title.substr(0, 100) + '...'}
                 </a>
                 
-                <p className="product-price">
+                <p className="basket-item-price">
                     <small>$</small>    
                     <strong>
                         {priceBeforeDot}
@@ -49,19 +51,15 @@ function Product({id, title, price, rating, image}) {
                     </strong>
                 </p>
 
-                <div className="product-rating">
+                <div className="basket-item-rating">
                     {stars}
                 </div>
+                
+                <button onClick={removeFromBasket} className="remove-from-basket-btn">Remove from basket</button>
 
             </div>
-
-            <img src={image} alt="Product Image" className="product-image" />
-
-            <button onClick={addToBasket} className="add-to-basket-btn">Add to basket</button>
 
         </div>
     );
 
 }
-
-export default Product

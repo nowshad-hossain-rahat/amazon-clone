@@ -1,0 +1,48 @@
+.subtotal {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.subtotal p {
+    margin: 0 0 10px 0;
+    font-size: 15px;
+    padding: 0;
+}
+
+.subtotal small {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    margin-bottom: 5px;
+}
+
+.subtotal small input {
+    margin: 2px 0 0 0;
+    padding: 0;
+}
+
+.subtotal small label {
+    margin: auto 0 auto 5px;
+}
+
+.subtotal .proceed-to-checkout {
+    background-color: #f89b34;
+    border: 1px solid #a88734;
+    outline: none;
+    padding: 8px 12px;
+    border-radius: 3px;
+    font-size: 15px;
+    margin: 5px 0 0 0;
+    width: 100%;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.subtotal .proceed-to-checkout:hover {
+    background-color:#d8821f;
+}

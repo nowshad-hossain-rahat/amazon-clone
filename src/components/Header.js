@@ -1,12 +1,20 @@
 import React from 'react';
 import './Header.css';
 import ShoppingBasketIcon from './ShoppingBasketIcon';
+import {Link} from 'react-router-dom';
+import { useStateValue } from '../StateProvider';
+
 
 function Header(props){
 
+    const [{basket}, dispatch] = useStateValue();
+
     return (
         <header>
-            <img className='logo' src={props.logo} alt="Amazon" />
+
+            <Link to={'/'}>
+                <img className='logo' src='logo-white.png' alt="Amazon" />
+            </Link>
             
             <div className="header-search">
                 <input type="text" name="s" id="s" placeholder='Search products...' />
@@ -30,10 +38,12 @@ function Header(props){
                     <a href="/prime">Prime</a>
                 </div>
 
-                <div className="header-option basket-icon">
-                    <ShoppingBasketIcon />
-                    <span className="shoping-basket-item-counter">0</span>    
-                </div>
+                <Link to={'/checkout'}>
+                    <div className="header-option basket-icon">
+                        <ShoppingBasketIcon />
+                        <span className="shoping-basket-item-counter">{basket.length}</span>    
+                    </div>
+                </Link>
 
             </nav>
 

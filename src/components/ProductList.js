@@ -47,7 +47,13 @@ function ProductList(){
             </div>
             
             <div className="home-row">
-                {/* <Product /> */}
+                <Product 
+                    id={6} 
+                    title={'Seagate Portable 2TB External Hard Drive Portable HDD – USB 3.0 for PC, Mac, PlayStation, & Xbox - 1-Year Rescue Service (STGX2000400)'} 
+                    price={59.99} 
+                    image={'hdd.jpg'} 
+                    rating={4}
+                />
             </div>
 
         </>

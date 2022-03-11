@@ -34,11 +34,11 @@ header {
 }
 
 .header-search {
-    align-self: flex-start;
+    align-self: stretch;
     justify-self: stretch;
     margin: 0 auto;
     padding: 0;
-    width: 60%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -122,20 +122,13 @@ header {
 }
 
 .header-option.basket-icon .shoping-basket-item-counter {
-    position: absolute;
-    bottom: -10px;
-    right: -10px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    background: firebrick;
     width: auto;
     min-width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    font-size: 14px;
+    font-size: 15px;
     color: white;
     font-weight: bold;
-    opacity: 0;
-    visibility: hidden;
+    margin-left: 10px;
 }
