@@ -27,11 +27,17 @@
     max-height: 100px;
 }
 
+.checkout-left h3 {
+    padding: 10px 5px 0 5px;
+    margin: 0;
+}
+
 .basket-title {
     width: 100%;
     padding: 10px 5px;
     border-bottom: 1px solid #aaa;
     font-size: 22px;
+    margin: 0;
 }
 
 .checkout-right {

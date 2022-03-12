@@ -1,5 +1,6 @@
 const initialState = {
-    basket: []
+    basket: [],
+    currentUser: null
 };
 
 export default initialState;
@@ -17,14 +18,27 @@ export const reducer = (state, action) => {
 
         case 'REMOVE_FROM_BASKET':
             
-            let basket = state.basket;
-            basket.splice(basket.indexOf(action.item), 1);
+            let basket = [...state.basket];
+            
+            const index = basket.findIndex(
+                (item) => item.id === action.item.id
+            );
+            
+            if(index >= 0)
+                basket.splice(index, 1);
         
             return {
                 ...state,
                 basket
             };
+        
+        case 'SET_CURRENT_USER':
 
+            return {
+                ...state,
+                currentUser: action.currentUser
+            };
+        
         default:
 
             return state;

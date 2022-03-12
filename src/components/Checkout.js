@@ -6,7 +6,7 @@ import BasketItem from './BasketItem';
 
 export default function Checkout(){
 
-    const [{basket}, dispatch] = useStateValue();
+    const [{basket, currentUser}, dispatch] = useStateValue();
 
     let subtotal = 0;
     basket.forEach((item) => { subtotal += item.price; });
@@ -19,6 +19,8 @@ export default function Checkout(){
                 <img className='ad-banner' src='ad-banner.jpg' />
 
                 <div className="basket">
+
+                    <h3>Hello, {currentUser ? currentUser.email.split('@')[0]+'!':'Guest!'}</h3>
 
                     <h2 className="basket-title">
                         Your Shopping Basket

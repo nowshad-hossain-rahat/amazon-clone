@@ -3,11 +3,22 @@ import './Header.css';
 import ShoppingBasketIcon from './ShoppingBasketIcon';
 import {Link} from 'react-router-dom';
 import { useStateValue } from '../StateProvider';
+import { signOut } from 'firebase/auth';
+import { auth } from '../firebase';
 
 
 function Header(props){
 
-    const [{basket}, dispatch] = useStateValue();
+    const [{basket, currentUser}, dispatch] = useStateValue();
+
+    // if there is user logged in, then just logout
+    const handleSignOut = () => {
+
+        if(currentUser){
+            signOut(auth);
+        }
+
+    };
 
     return (
         <header>
@@ -23,10 +34,12 @@ function Header(props){
 
             <nav className='header-nav'>
                 
-                <div className="header-option">
-                    <span>Hello</span>
-                    <a href="/signin">Sign In</a>
-                </div>
+                <Link to={!currentUser && '/login'}>
+                    <div onClick={handleSignOut} className="header-option">
+                        <span>Hello, {currentUser ? currentUser.email.split('@')[0]+'!':'Guest!'}</span>
+                        {currentUser ? 'Sign Out':'Sign In'}
+                    </div>
+                </Link>
 
                 <div className="header-option">
                     <span>Returns</span>
