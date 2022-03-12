@@ -117,6 +117,22 @@ header {
     margin: 0;
 }
 
+.header-option.basket-icon i.put-item {
+    animation: putItem 0.5s linear;
+}
+
+@keyframes putItem {
+    
+    0% {
+        transform: scale(1.2);
+    }
+    
+    95% {
+        transform: scale(1);
+    }
+    
+}
+
 .header-option.basket-icon:hover {
     color: #f89b34;
 }

@@ -1,0 +1,53 @@
+.payment {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    transition: 0.3s;
+    background-color: #fff;
+}
+
+.payment-container {
+    width: 100%;
+}
+
+.payment-header {
+    width: 100%;
+    margin: 0;
+    padding: 10px 15px;
+    background-color: #ccc;
+    color: #000;
+    font-size: 25px;
+    text-align: center;
+}
+
+.payment-section {
+    display: flex;
+    justify-content: stretch;
+    align-items: flex-start;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    margin: 0 25px;
+    width: calc(100% - 50px);
+}
+
+.payment-section:last-child {
+    border-bottom: none;
+}
+
+.payment-section .payment-section-left {
+    width: 20%;
+    line-break: strict;
+    word-break: normal;
+    height: 100%;
+    padding: 0;
+}
+
+.payment-section .payment-section-title {
+    font-size: 20px;
+    margin: 0;
+}
+
+.payment-section-right {
+    width: 80%;
+}

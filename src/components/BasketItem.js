@@ -3,23 +3,23 @@ import React from 'react';
 import { useStateValue } from '../StateProvider';
 import './BasketItem.css';
 
-export default function BasketItem({id, title, price, rating, image}) {
+export default function BasketItem({index, id, title, price, rating, image}) {
 
     const [state, dispatch] = useStateValue();
 
     const removeFromBasket = () => {
 
-        // dispatch the item into the data layer
-        n(`#basket-item-${id}`).addClass('remove');
+        dispatch({
+            type: 'REMOVE_FROM_BASKET',
+            item: {id, title, price, rating, image},
+            index
+        });
 
+        // animate the basket icon
+        n('.header-option.basket-icon i').addClass('put-item');
         setTimeout(() => {
-
-            dispatch({
-                type: 'REMOVE_FROM_BASKET',
-                item: {id, title, price, rating, image}
-            });
-
-        }, 600);
+            n('.header-option.basket-icon i').removeClass('put-item');
+        }, 510);
 
     };
 
@@ -39,7 +39,7 @@ export default function BasketItem({id, title, price, rating, image}) {
     }
 
     return (
-        <div className="basket-item" id={`basket-item-${id}`} key={id}>
+        <div className="basket-item" id={`basket-item-${index}-${id}`}>
             
             <img src={image} alt="Basket Item Image" className="basket-item-image" />
 

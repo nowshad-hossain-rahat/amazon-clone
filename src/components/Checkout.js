@@ -11,6 +11,11 @@ export default function Checkout(){
     let subtotal = 0;
     basket.forEach((item) => { subtotal += item.price; });
 
+    const emptyBasket = <div className='empty-basket'>
+        <span>Nothing in your basket!</span>
+        <i className="fa fa-shopping-basket"></i>
+    </div>;
+
     return (
         <div className="checkout">
 
@@ -27,10 +32,11 @@ export default function Checkout(){
                     </h2>
 
                     {
-                        (basket.length === 0) ? <p>Nothing in your basket!</p>:basket.map((item) => {
+                        (basket.length === 0) ? emptyBasket:basket.map((item, index) => {
 
                             return <BasketItem 
-                                key={item.id} 
+                                key={`basketItem-${index}-${item.id}`}
+                                index={index} 
                                 id={item.id} 
                                 title={item.title} 
                                 price={item.price} 

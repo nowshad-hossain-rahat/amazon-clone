@@ -9,7 +9,11 @@ function Home(){
             <div className="home-container">
 
                 <div className="banner">
-                    <img src="banner.jpg" alt="Banner" />
+                    <div className="slider">
+                        <img key={1} src="banner.jpg" alt="Banner 1" />
+                        <img key={2} src="banner.jpg" alt="Banner 2" />
+                        <img key={3} src="banner.jpg" alt="Banner 3" />
+                    </div>
                 </div>
 
                 <ProductList />

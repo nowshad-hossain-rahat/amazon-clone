@@ -8,16 +8,7 @@
     border: 1px solid #eee;
     margin: 10px 0;
     width: 100%;
-    transition: 0.4s;
-}
-
-.basket-item.remove {
-    transform: scaleY(0);
-    overflow: hidden;
-    width: 0;
-    height: 0;
-    margin: 0;
-    padding: 0;
+    transition: 0.3s;
 }
 
 .basket-item-info {

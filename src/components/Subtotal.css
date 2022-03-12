@@ -43,6 +43,16 @@
     cursor: pointer;
 }
 
+.subtotal .proceed-to-checkout:disabled {
+    background-color: #ddd;
+    border-color: #aaa;
+    cursor: not-allowed;
+}
+
 .subtotal .proceed-to-checkout:hover {
     background-color:#d8821f;
+}
+
+.subtotal .proceed-to-checkout:disabled:hover {
+    background-color: #ddd;
 }

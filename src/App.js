@@ -7,6 +7,7 @@ import Login from './auth-components/Login';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
 import { useStateValue } from './StateProvider';
+import Payment from './payment-components/Payment';
 
 function App(){
 
@@ -54,6 +55,16 @@ function App(){
                         <>
                             <Header />
                             <Checkout />
+                        </>
+                    } 
+                />
+                
+                <Route 
+                    path='/payment' 
+                    element={
+                        <>
+                            <Header />
+                            <Payment />
                         </>
                     } 
                 />

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useStateValue } from '../StateProvider';
 import './Product.css';
+import { n } from 'nhrquery/nhrQuery';
 
 function Product({id, title, price, rating, image}) {
 
@@ -14,6 +15,12 @@ function Product({id, title, price, rating, image}) {
             type: 'ADD_TO_BASKET',
             item: {id, title, price, rating, image}
         });
+
+        // animate the basket icon
+        n('.header-option.basket-icon i').addClass('put-item');
+        setTimeout(() => {
+            n('.header-option.basket-icon i').removeClass('put-item');
+        }, 510);
 
     };
 

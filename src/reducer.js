@@ -20,12 +20,7 @@ export const reducer = (state, action) => {
             
             let basket = [...state.basket];
             
-            const index = basket.findIndex(
-                (item) => item.id === action.item.id
-            );
-            
-            if(index >= 0)
-                basket.splice(index, 1);
+            basket.splice(action.index, 1);
         
             return {
                 ...state,
