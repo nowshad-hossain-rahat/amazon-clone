@@ -4,6 +4,7 @@ import './Login.css';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 import { useStateValue } from '../StateProvider';
+import { n } from 'nhrquery/nhrQuery';
 
 function Login() {
     
@@ -18,13 +19,31 @@ function Login() {
 
         evt.preventDefault();
 
+        // validating form
+        if(email === '' || pass === ''){
+            alert('Fill the form correctly!');
+            return;
+        }
+
+        // disabling the signIn and signUp buttons
+        n('#login-submit-btn').text('Signing In...').disabled();
+        n('#login-form-create-account-btn').disabled();
+
         signInWithEmailAndPassword(auth, email, pass)
             .then((user) => {
-                alert('Login successful!');
+
+                // redirect to homepage
                 navigate('/');
+                
             })
             .catch((err) => {
-                alert(err.message);
+
+                alert(err.message.replace('Firebase: ', ''));
+
+            }).finally(() => {
+                // enabling the signIn and signUp buttons
+                n('#login-submit-btn').text('Sign In').enabled();
+                n('#login-form-create-account-btn').enabled();
             });
 
     };
@@ -33,17 +52,34 @@ function Login() {
     const signUp = (evt) => {
 
         evt.preventDefault();
+
+        // validating form
+        if(email === '' || pass === ''){
+            alert('Fill the form correctly!');
+            return;
+        }
+
+        // disabling the signIn and signUp buttons
+        n('#login-submit-btn').disabled();
+        n('#login-form-create-account-btn').text('Creating an Amazon Account...').disabled();
         
         createUserWithEmailAndPassword(auth, email, pass)
             .then((user) => {
-                // success
-                alert('Account created successfully!');
+
                 // redirect to home
                 navigate('/');
 
             })
             .catch((err) => {
-                alert(err.message);
+
+                alert(err.message.replace('Firebase: ', ''));
+
+            }).finally(() => {
+
+                // enabling the signIn and signUp buttons
+                n('#login-submit-btn').enabled();
+                n('#login-form-create-account-btn').text('Create an Amazon Account').enabled();
+
             });
 
     };

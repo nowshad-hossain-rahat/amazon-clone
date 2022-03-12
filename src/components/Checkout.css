@@ -16,6 +16,7 @@
     padding: 10px;
     background-color: transparent;
     box-sizing: border-box;
+    transition: 0.3s;
 }
 
 .checkout-right {

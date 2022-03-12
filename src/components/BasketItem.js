@@ -1,3 +1,4 @@
+import { n } from 'nhrquery';
 import React from 'react';
 import { useStateValue } from '../StateProvider';
 import './BasketItem.css';
@@ -9,11 +10,16 @@ export default function BasketItem({id, title, price, rating, image}) {
     const removeFromBasket = () => {
 
         // dispatch the item into the data layer
+        n(`#basket-item-${id}`).addClass('remove');
 
-        dispatch({
-            type: 'REMOVE_FROM_BASKET',
-            item: {id, title, price, rating, image}
-        });
+        setTimeout(() => {
+
+            dispatch({
+                type: 'REMOVE_FROM_BASKET',
+                item: {id, title, price, rating, image}
+            });
+
+        }, 600);
 
     };
 
@@ -33,7 +39,7 @@ export default function BasketItem({id, title, price, rating, image}) {
     }
 
     return (
-        <div className="basket-item" key={id}>
+        <div className="basket-item" id={`basket-item-${id}`} key={id}>
             
             <img src={image} alt="Basket Item Image" className="basket-item-image" />
 

@@ -8,6 +8,16 @@
     border: 1px solid #eee;
     margin: 10px 0;
     width: 100%;
+    transition: 0.4s;
+}
+
+.basket-item.remove {
+    transform: scaleY(0);
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .basket-item-info {
@@ -59,6 +69,12 @@
     max-width: 45%;
     height: 150px;
     margin: auto;
+    transition: 0.3s;
+    object-fit: cover;
+}
+
+.basket-item:hover .basket-item-image {
+    transform: scale(1.1);
 }
 
 .basket-item .remove-from-basket-btn {

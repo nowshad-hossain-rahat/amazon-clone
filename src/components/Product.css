@@ -8,6 +8,11 @@
     background-color: white;
     margin: 10px;
     width: 100%;
+    transition: 0.3s;
+}
+
+.product:hover .product-image {
+    transform: scale(1.1);
 }
 
 .product-info {
@@ -49,6 +54,8 @@
     width: auto;
     height: 150px;
     margin: 10px auto;
+    transition: 0.3s;
+    object-fit: cover;
 }
 
 .product .add-to-basket-btn {
@@ -62,6 +69,7 @@
     transition: 0.3s;
     cursor: pointer;
     margin-top: auto;
+    border: 1px solid #aa8473;
 }
 
 .product .add-to-basket-btn:hover {
