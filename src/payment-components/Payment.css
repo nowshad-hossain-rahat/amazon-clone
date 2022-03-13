@@ -51,3 +51,22 @@
 .payment-section-right {
     width: 80%;
 }
+
+.payment-section .delivery-address {
+    margin: 0;
+    font-size: 15px;
+    font-style: italic;
+    line-height: 18px;
+    display: inline-block;
+    width: auto;
+}
+
+.payment-section .delivery-address .deliver-email {
+    padding: 0 0 5px 0;
+    border-bottom: 1px dotted #333;
+    margin-bottom: 5px;
+}
+
+.payment-section .delivery-address p {
+    margin: 0 0 3px 0;
+}

@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import { Link } from 'react-router-dom';
 import BasketItem from '../components/BasketItem';
 import { useStateValue } from '../StateProvider';
 import './Payment.css';
 
+
 function Payment() {
 
     const [{basket, currentUser}, dispatch] = useStateValue();
+    const stripe = useStripe();
+    const elements = useElements();
+    const [error, setError] = useState(null);
+    const [disabled, setDisabled] = useState(true);
+
+
+
+    const handlePaymentSubmit = e => {
+
+
+
+    }
+
+
+    const handleCardChange = e => {
+
+
+
+    }
 
 
     const emptyBasket = <div className='empty-basket'>
@@ -18,7 +40,7 @@ function Payment() {
         <div className="payment-container">
 
             <div className="payment-header">
-                Checkout ({basket.length + ' items'})
+                Checkout <Link to={'/checkout'}>({basket.length + ' items'})</Link>
             </div>
 
             <div className="payment-section">
@@ -29,13 +51,13 @@ function Payment() {
                     </h3>
                 </div>
 
-                <div className="payment-section-right">
+                <div className="payment-section-right delivery-address">
 
-                    <span className='deliver-user-email'>{currentUser?currentUser.email:'Guest'}</span>
-                    <p className="delivery-address">
+                    <p className='deliver-email'>{currentUser?currentUser.email:'Guest'}</p >
+                    <p>
                         Bawni, Sreepur, Gazipur
-                        <span>Dhaka, Bangladesh</span>
                     </p>
+                    <p>Dhaka, Bangladesh</p>
 
                 </div>
 
@@ -71,6 +93,24 @@ function Payment() {
                 </div>
 
             </div>
+
+
+            <div className="payment-section">
+
+                <div className="payment-section-right">
+                    <h3 className="payment-section-title"> Payment </h3>
+                </div>
+                
+                <div className="payment-section-right">
+
+                    <form onSubmit={handlePaymentSubmit}>
+                        <CardElement onChange={handleCardChange} />
+                    </form>
+
+                </div>
+
+            </div>
+
 
         </div>
     </div>;
