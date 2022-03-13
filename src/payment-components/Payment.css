@@ -37,6 +37,7 @@
 
 .payment-section .payment-section-left {
     width: 20%;
+    max-width: 20%;
     line-break: strict;
     word-break: normal;
     height: 100%;
@@ -48,8 +49,9 @@
     margin: 0;
 }
 
-.payment-section-right {
+.payment-section .payment-section-right {
     width: 80%;
+    max-width: 80%;
 }
 
 .payment-section .delivery-address {
@@ -69,4 +71,76 @@
 
 .payment-section .delivery-address p {
     margin: 0 0 3px 0;
+}
+
+.payment-section-right form {
+    background: #fff;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    min-width: 100%;
+}
+
+.payment-section-right form .order-total-info {
+    margin: 10px 0 0 0;
+    background: #eee;
+    padding: 5px 10px;
+    border-radius: 3px;
+    height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.payment-section-right form button {
+    padding: 8px 12px;
+    font-size: 15px;
+    background-color: #ff9901;
+    border-radius: 3px;
+    border: 1px solid #aa8e73;
+    position: relative;
+    margin: 10px 0 0 0;
+    transition: 0.3s;
+    z-index: 1;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    align-self: flex-end;
+}
+
+.payment-section-right form button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    z-index: -1;
+}
+
+.payment-section-right form button:hover {
+    background-color: #e79212;
+}
+
+.payment-section-right form button:disabled {
+    background-color: #ddd;
+    border-color: #ddd;
+}
+
+.error-msg {
+    margin: 10px 0;
+    padding: 10px;
+    background: firebrick;
+    font-weight: bold;
+    color: white;
+    font-size: 15px;
+    border-radius: 3px;
+    transition: 0.3s;
 }
