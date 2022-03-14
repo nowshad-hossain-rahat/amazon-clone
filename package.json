@@ -14,6 +14,7 @@
     "firebase": "^9.6.8",
     "font-awesome": "^4.7.0",
     "jquery": "^3.6.0",
+    "md5": "^2.3.0",
     "nhrquery": "^1.0.9",
     "popper.js": "^1.16.1",
     "react": "^17.0.2",

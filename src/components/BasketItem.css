@@ -12,7 +12,7 @@
 }
 
 .basket-item-info {
-    width: 50%;
+    width: 55%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -57,15 +57,15 @@
 }
 
 .basket-item .basket-item-image {
-    max-width: 45%;
+    max-width: 40%;
     height: 150px;
     margin: auto;
     transition: 0.3s;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .basket-item:hover .basket-item-image {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .basket-item .remove-from-basket-btn {

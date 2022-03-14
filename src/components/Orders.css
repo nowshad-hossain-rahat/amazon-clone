@@ -1,0 +1,14 @@
+.orders {
+    padding: 15px;
+    width: 85%;
+    margin: 10px auto;
+    border-radius: 3px;
+}
+
+.orders-title {
+    background-color: white;
+    margin: 0 0 10px 0;
+    padding: 15px;
+    font-size: 25px;
+    border-radius: 3px;
+}

@@ -41,10 +41,12 @@ function Header(props){
                     </div>
                 </Link>
 
-                <div className="header-option">
-                    <span>Returns</span>
-                    <a href="/orders">& Orders</a>
-                </div>
+                <Link to={'/orders'}>
+                    <div className="header-option">
+                        <span>Returns</span>
+                        & Orders
+                    </div>
+                </Link>
 
                 <div className="header-option">
                     <span>Your</span>

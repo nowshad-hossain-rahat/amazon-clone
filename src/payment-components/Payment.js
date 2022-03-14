@@ -5,6 +5,9 @@ import BasketItem from '../components/BasketItem';
 import { useStateValue } from '../StateProvider';
 import './Payment.css';
 import axios from '../axios';
+import { db } from '../firebase';
+import { doc, setDoc } from 'firebase/firestore';
+import md5 from 'md5';
 
 
 function Payment() {
@@ -26,7 +29,10 @@ function Payment() {
 
 
     useEffect(() => {
-        
+
+        // if there's no logged in user, then just redirect to login page
+        if(!currentUser){ navigate('/login'); return; }
+
         const getClientSecret = async () => {
 
             const response = await axios({
@@ -36,14 +42,11 @@ function Payment() {
 
             setClientSecret(response.data.clientSecret || response.data.error);
 
-            console.log(response);
-
         }
 
         getClientSecret();
 
     }, [basket]);
-    
 
 
     const handlePaymentSubmit = async e => {
@@ -55,12 +58,30 @@ function Payment() {
             payment_method: {
                 card: elements.getElement(CardElement)
             }
-        }).then(({ paymentIntent }) => {
+        }).then(async ({ paymentIntent }) => {
 
-            // payment confirmation
+            // add data to firestore
+            await setDoc(
+                doc(db, 'users', currentUser?.uid, 'orders', paymentIntent.id),
+                {
+                    amount: totalPrice,
+                    created: paymentIntent.created,
+                    currency: 'usd',
+                    orderId: md5(currentUser?.uid).substring(0, 50) + paymentIntent.created,
+                    delivered: false,
+                    deliveredAt: null,
+                    basket
+                }
+            );
+
             setSucceeded(true);
             setError(null);
             setProccessing(false);
+
+            // empty the basket
+            dispatch({
+                type: 'EMPTY_BASKET'
+            });
 
             navigate('/orders');
 
@@ -69,9 +90,10 @@ function Payment() {
     }
 
 
-    const handleCardChange = e => {
+    const handleCardChange = card => {
 
-
+        if(!card.empty && card.complete)
+            setDisabled(false);
 
     }
 

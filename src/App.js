@@ -4,6 +4,7 @@ import Checkout from './components/Checkout';
 import Header from './components/Header';
 import Home from './components/Home';
 import Login from './auth-components/Login';
+import Orders from './components/Orders';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
 import { useStateValue } from './StateProvider';
@@ -70,6 +71,16 @@ function App(){
                             <Elements stripe={stripePromise}>
                                 <Payment />
                             </Elements>
+                        </>
+                    } 
+                />
+
+                <Route 
+                    path='/orders' 
+                    element={
+                        <>
+                            <Header />
+                            <Orders />
                         </>
                     } 
                 />
